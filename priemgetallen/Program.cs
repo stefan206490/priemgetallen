@@ -18,7 +18,7 @@ namespace priemgetallen
     */
     //mochten de getallen te groot worden dan moet je long i.p.v. int gebruiken.
     class Program
-    {//test
+    {
         public static int uitput;
         public static int intMax = 1000;
         public static int intMin = 2;
