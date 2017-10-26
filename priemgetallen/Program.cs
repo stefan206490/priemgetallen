@@ -19,76 +19,35 @@ namespace priemgetallen
     //mochten de getallen te groot worden dan moet je long i.p.v. int gebruiken.
     class Program
     {
-        public static int uitput;
-        public static int intMax = 1000;
-        public static int intMin = 2;
-        public static int intA;
+        public static long uitput;
+        public static long lngTest;
+        public static long lngWortel;
         public static bool prime = true;
-        public static int Counter;
-        public static int AutoLoad = 1;
-        public static int intIn;
+        public static int n;
         static void Main(string[] args)
         {
-            Console.WriteLine("wil je autoload gebruiken?");
-            Console.WriteLine("1)ja / 0)nee");
-            intIn = Convert.ToInt32(Console.ReadLine());
-            if (intIn == 1)
-            {
-                AutoLoad = 1;
-            } else
-            {
-                AutoLoad = 0;
-            }
-            Console.WriteLine("Wil je een startpunt instellen?");
-            Console.WriteLine("1)ja / 0)nee");
-            int Q1 = Convert.ToInt32(Console.ReadLine());
-            if (Q1 == 1)
-            {
-                Console.WriteLine("welk getal heeft je startpunt");
-                intMin = Convert.ToInt32(Console.ReadLine());
-                intMax = intMin + 1000;
-            }
-            if (AutoLoad == 0)
-            {
-                Console.WriteLine("Vanaf welk getal wil je controleren?");
-                intMin = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Tot welk getal wil je controleren?");
-                intMax = Convert.ToInt32(Console.ReadLine());
-            }
-            //intMum is het getal dat je gaat controleren of het priem is.
+            //lngTest is het getal dat zal worden getest of het priem is.
+            lngTest = 1;
             do
             {
-                for (intA = intMin; intA <= intMax; intA++)
+                lngTest++;
+                lngWortel = Convert.ToInt64((Math.Round(Math.Sqrt(Convert.ToDouble(lngTest)))+1));
+                for (int c = 2; c < lngWortel; c++)
                 {
-                    for (int c = 2; c <= (intA - 1); c++)
+                    uitput = lngTest % c;
+                    if (uitput == 0)
                     {
-                        uitput = intA % c;
-                        if (uitput == 0)
-                        {
-                            prime = false;
-                            break;
-                        }
+                        prime = false;
+                        break;
                     }
-                    if (prime == true)
-                    {
-                        Counter = Counter + 1;
-                        if (Counter == 10000)
-                        {
-                            Console.Clear();
-                        }
-                        Console.WriteLine("{0} is een priemgetal.", intA);
-                    }
-                    prime = true;
                 }
-                Console.WriteLine("Dit was het laatste priemgetal");
-                Console.WriteLine("Volgende serie wordt geladen...");
-                intMin = intMax + 1;
-                intMax = intMin + 1000;
-                Console.WriteLine("Van {0} tot {1} is de volgende serie.", intMin, intMax);
-                Thread.Sleep(100);
-                Console.Clear();
-                Console.WriteLine("Van {0} tot {1} is de volgende serie.", intMin, intMax);
-            } while (AutoLoad == 1);
+                if (prime == true)
+                {
+                    n = n + 1;
+                    Console.WriteLine("{0} : {1} is priem.", n, lngTest);
+                }
+                prime = true;
+            } while (true);
         }  
     }
 }
