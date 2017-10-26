@@ -9,14 +9,7 @@ namespace priemgetallen
 {
     /* 
    lucas numbers eerste filter
-   1,3,4,7,11,18,29,47
-   elk volgende lucas nummer is de som van de twee nummers die er direct voor staan.
-   om te controleren of getal 'n' misschien een priemgetal is zoek ik het Lucasnummer
-   dat op plaats 'n' in de serie staat. van dit getal haal ik 1 af.
-   dan kijk ik of dit getal een veelvoud van 'n' is.
-   als dit het geval is heb je te maken met een lucas pseudo prime.
-    */
-    //mochten de getallen te groot worden dan moet je long i.p.v. int gebruiken.
+   */
     class Program
     {
         public static long uitput;
